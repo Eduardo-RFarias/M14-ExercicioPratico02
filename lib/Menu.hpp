@@ -2,20 +2,17 @@
 #define MENU
 
 #include <iostream>
-#include <fstream>
-
+#include <Transcritor.hpp>
 using namespace std;
 
 class Menu
 {
 private:
-    unsigned short escolha;
-    ifstream bancoDados;
+    char escolha;
 
 public:
-    Menu();
     void executar();
-    
+    void subirTerminal();
 };
 
 #endif

@@ -2,9 +2,16 @@
 
 Em desevolvimento:
   Menu
+  Transcritor -> LN 61 (Ordenações)
   
 Fila:
-  Resto do programa :v
+  Busca binária
+  Resultados
   
 Concluído:
   main
+  Leitura e armazenamento
+  
+
+
+PS: caso queira testar e não saiba usar o Cmake, coloque todos os arquivos cpp e hpp no mesmo diretório e compile normalmente.

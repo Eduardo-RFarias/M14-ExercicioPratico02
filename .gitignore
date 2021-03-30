@@ -55,3 +55,6 @@ build/lib/CMakeFiles/lib.dir/link.txt
 build/lib/CMakeFiles/lib.dir/Menu.cpp.obj
 build/lib/CMakeFiles/lib.dir/progress.make
 out/exercicioPratico02.exe
+.vscode/c_cpp_properties.json
+build/lib/CMakeFiles/lib.dir/Coluna.cpp.obj
+build/lib/CMakeFiles/lib.dir/Transcritor.cpp.obj
