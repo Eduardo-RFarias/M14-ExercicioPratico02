@@ -2,7 +2,7 @@
 
 Transcritor::Transcritor()
 {
-    this->tamColunas = 0;
+    this->tamColunas = -1;
 }
 
 Transcritor::~Transcritor()
@@ -29,7 +29,7 @@ void Transcritor::transcrever()
         }
         else
         {
-            cout << "### Erro ao abrir o arquivo, confira o nome correto. ###" << endl;
+            cout << "### ERRO ao abrir o arquivo, confira o nome correto. ###" << endl;
         }
     } while (true);
 

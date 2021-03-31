@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <Transcritor.hpp>
+#include <Consultor.hpp>
 using namespace std;
 
 class Menu

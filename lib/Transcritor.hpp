@@ -8,19 +8,22 @@ using namespace std;
 
 class Transcritor
 {
-public:
+private:
     ifstream bancoDados;
-    int tamColunas;
-    Coluna *colunas;
-    string *chaves;
-    int *posicoes;
 
     void lerDados(int *dados);
     void checarNumeroColunas();
     void insertSort();
 
+public:
+    int tamColunas;
+    Coluna *colunas;
+    string *chaves;
+    int *posicoes;
+
     Transcritor();
     ~Transcritor();
+
     void transcrever();
 };
 

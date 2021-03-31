@@ -1,16 +1,17 @@
 # M14-ExercicioPratico02
 
 Em desevolvimento:
-  Menu
-  Busca binária
+  Nada :)
   
 Fila:
-  Resultados
+  Possíveis melhorias
   
 Concluído:
   main
   Leitura e armazenamento
   Ordenações
+  Busca binária
+  Resultados
   
 
 

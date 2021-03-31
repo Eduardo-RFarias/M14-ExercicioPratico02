@@ -8,6 +8,7 @@ void Menu::executar()
     {
         cout << "------------Menu------------" << endl;
         cout << "1 - Carregar banco de dados" << endl;
+        cout << "2 - Consulta               " << endl;
         cout << "0 - sair                   " << endl;
         cout << "----------------------------" << endl;
 
@@ -19,6 +20,19 @@ void Menu::executar()
         {
         case '1':
             tr.transcrever();
+            break;
+
+        case '2':
+            if (tr.tamColunas == -1)
+            {
+                cout << "### ERRO Carregue o banco de dados primeiro. ###" << endl;
+                break;
+            }
+            else
+            {
+                Consultor cs(tr.posicoes, tr.chaves, tr.colunas, tr.tamColunas);
+                cs.consultar();
+            }
             break;
 
         case '0':
