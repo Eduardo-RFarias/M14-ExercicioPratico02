@@ -10,9 +10,10 @@ class Menu
 private:
     char escolha;
 
+    void subirTerminal();
+
 public:
     void executar();
-    void subirTerminal();
 };
 
 #endif

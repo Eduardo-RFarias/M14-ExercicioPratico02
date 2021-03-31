@@ -2,15 +2,15 @@
 
 Em desevolvimento:
   Menu
-  Transcritor -> LN 61 (Ordenações)
+  Busca binária
   
 Fila:
-  Busca binária
   Resultados
   
 Concluído:
   main
   Leitura e armazenamento
+  Ordenações
   
 
 

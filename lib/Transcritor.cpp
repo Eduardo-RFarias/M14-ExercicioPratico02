@@ -58,7 +58,7 @@ void Transcritor::transcrever()
 
     bancoDados.close();
 
-    //TODO Sort
+    insertSort();
 }
 
 void Transcritor::lerDados(int dados[])
@@ -77,6 +77,8 @@ void Transcritor::lerDados(int dados[])
 
 void Transcritor::checarNumeroColunas()
 {
+    tamColunas = 0;
+
     bancoDados.ignore(256, '\n');
 
     while (bancoDados.good())
@@ -87,4 +89,31 @@ void Transcritor::checarNumeroColunas()
 
     bancoDados.clear();
     bancoDados.seekg(0);
+}
+
+void Transcritor::insertSort()
+{
+    int i = 0;
+    int j = 1;
+    string aux;
+    int aux2;
+
+    while (j < tamColunas)
+    {
+        aux = chaves[j];
+        aux2 = posicoes[j];
+        i = j - 1;
+
+        while (i >= 0 && chaves[i] > aux)
+        {
+            chaves[i + 1] = chaves[i];
+            posicoes[i + 1] = posicoes[i];
+            i--;
+        }
+
+        chaves[i + 1] = aux;
+        posicoes[i + 1] = aux2;
+
+        j++;
+    }
 }
