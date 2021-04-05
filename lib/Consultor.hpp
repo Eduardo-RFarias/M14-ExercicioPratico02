@@ -2,7 +2,7 @@
 #define CONSULTOR
 
 #include <iostream>
-#include <Coluna.hpp>
+#include "Coluna.hpp"
 using namespace std;
 
 class Consultor

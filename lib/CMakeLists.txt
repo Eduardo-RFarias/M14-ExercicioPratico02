@@ -1,5 +1,4 @@
 add_library(lib
-Menu.cpp
 Transcritor.cpp
 Coluna.cpp
 Consultor.cpp

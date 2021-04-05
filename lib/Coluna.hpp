@@ -4,16 +4,27 @@
 #include <iostream>
 using namespace std;
 
+#define DADOS_SIZE 6
+#define STREAM_SIZE 256
+
 class Coluna
 {
-public:
+private:
     string codigo;
     string regiao;
     string UF;
     string data;
-    int dados[6];
+    int dados[DADOS_SIZE];
 
-    void setDados(int dados[]);
+public:
+    Coluna();
+    Coluna(string codigo, string regiao, string UF, string data, int dados[DADOS_SIZE]);
+
+    string getCodigo();
+    string getRegiao();
+    string getUF();
+    string getData();
+    int *getDados();
 };
 
 #endif

@@ -1,4 +1,4 @@
-#include <Consultor.hpp>
+#include "Consultor.hpp"
 
 Consultor::Consultor(int posicoes[], string chaves[], Coluna colunas[], int tamColunas)
 {
@@ -42,15 +42,15 @@ void Consultor::consultar()
     } while (true);
 
     cout << "------------------------" << endl;
-    cout << "Regiao: " << colunas[p].regiao << endl;
-    cout << "UF: " << colunas[p].UF << endl;
-    cout << "Data: " << colunas[p].data << endl;
-    cout << "Semana: " << colunas[p].dados[0] << endl;
-    cout << "Populacao: " << colunas[p].dados[1] << endl;
-    cout << "Casos Acumulados: " << colunas[p].dados[2] << endl;
-    cout << "Casos Novos: " << colunas[p].dados[3] << endl;
-    cout << "Óbitos Acumulados: " << colunas[p].dados[4] << endl;
-    cout << "Óbitos Novos: " << colunas[p].dados[5] << endl;
+    cout << "Regiao: " << colunas[p].getRegiao() << endl;
+    cout << "UF: " << colunas[p].getUF() << endl;
+    cout << "Data: " << colunas[p].getData() << endl;
+    cout << "Semana: " << colunas[p].getDados()[0] << endl;
+    cout << "Populacao: " << colunas[p].getDados()[1] << endl;
+    cout << "Casos Acumulados: " << colunas[p].getDados()[2] << endl;
+    cout << "Casos Novos: " << colunas[p].getDados()[3] << endl;
+    cout << "Óbitos Acumulados: " << colunas[p].getDados()[4] << endl;
+    cout << "Óbitos Novos: " << colunas[p].getDados()[5] << endl;
     cout << "------------------------" << endl;
 }
 

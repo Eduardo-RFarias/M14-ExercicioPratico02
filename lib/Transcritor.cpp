@@ -1,8 +1,8 @@
-#include <Transcritor.hpp>
+#include "Transcritor.hpp"
 
 Transcritor::Transcritor()
 {
-    this->tamColunas = -1;
+    this->transcrito = false;
 }
 
 Transcritor::~Transcritor()
@@ -15,8 +15,11 @@ Transcritor::~Transcritor()
 void Transcritor::transcrever()
 {
     string nomeArquivo;
-    Coluna modelo;
-    int dados[6];
+    string codigo;
+    string regiao;
+    string UF;
+    string data;
+    int dados[DADOS_SIZE];
 
     do
     {
@@ -39,19 +42,19 @@ void Transcritor::transcrever()
     chaves = new string[tamColunas];
     posicoes = new int[tamColunas];
 
-    bancoDados.ignore(256, '\n');
+    bancoDados.ignore(STREAM_SIZE, '\n');
 
     for (int i = 0; i < tamColunas; i++)
     {
-        getline(bancoDados, modelo.codigo, ';');
-        getline(bancoDados, modelo.regiao, ';');
-        getline(bancoDados, modelo.UF, ';');
-        getline(bancoDados, modelo.data, ';');
-
+        getline(bancoDados, codigo, ';');
+        getline(bancoDados, regiao, ';');
+        getline(bancoDados, UF, ';');
+        getline(bancoDados, data, ';');
         lerDados(dados);
-        modelo.setDados(dados);
 
-        chaves[i] = modelo.codigo;
+        Coluna modelo(codigo, regiao, UF, data, dados);
+
+        chaves[i] = codigo;
         posicoes[i] = i;
         colunas[i] = modelo;
     }
@@ -59,31 +62,33 @@ void Transcritor::transcrever()
     bancoDados.close();
 
     insertSort();
+
+    transcrito = true;
 }
 
-void Transcritor::lerDados(int dados[])
+void Transcritor::lerDados(int dados[DADOS_SIZE])
 {
     string aux;
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < DADOS_SIZE - 1; i++)
     {
         getline(bancoDados, aux, ';');
         dados[i] = stoi(aux);
     }
 
     getline(bancoDados, aux);
-    dados[5] = stoi(aux);
+    dados[DADOS_SIZE - 1] = stoi(aux);
 }
 
 void Transcritor::checarNumeroColunas()
 {
     tamColunas = 0;
 
-    bancoDados.ignore(256, '\n');
+    bancoDados.ignore(STREAM_SIZE, '\n');
 
     while (bancoDados.good())
     {
-        bancoDados.ignore(256, '\n');
+        bancoDados.ignore(STREAM_SIZE, '\n');
         tamColunas++;
     }
 
@@ -93,12 +98,11 @@ void Transcritor::checarNumeroColunas()
 
 void Transcritor::insertSort()
 {
-    int i = 0;
-    int j = 1;
-    string aux;
+    int i;
     int aux2;
+    string aux;
 
-    while (j < tamColunas)
+    for (int j = 1; j < tamColunas; j++)
     {
         aux = chaves[j];
         aux2 = posicoes[j];
@@ -113,7 +117,15 @@ void Transcritor::insertSort()
 
         chaves[i + 1] = aux;
         posicoes[i + 1] = aux2;
-
-        j++;
     }
+}
+
+int Transcritor::getTamColunas()
+{
+    return tamColunas;
+}
+
+bool Transcritor::isTranscrito()
+{
+    return transcrito;
 }

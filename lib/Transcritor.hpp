@@ -3,20 +3,21 @@
 
 #include <iostream>
 #include <fstream>
-#include <Coluna.hpp>
+#include "Coluna.hpp"
 using namespace std;
 
 class Transcritor
 {
 private:
     ifstream bancoDados;
+    int tamColunas;
+    bool transcrito;
 
-    void lerDados(int *dados);
+    void lerDados(int dados[DADOS_SIZE]);
     void checarNumeroColunas();
     void insertSort();
 
 public:
-    int tamColunas;
     Coluna *colunas;
     string *chaves;
     int *posicoes;
@@ -25,6 +26,8 @@ public:
     ~Transcritor();
 
     void transcrever();
+    int getTamColunas();
+    bool isTranscrito();
 };
 
 #endif
